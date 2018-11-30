@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace esimed.bean.sgprojet
 {
-    public class Class1
+    public class Projet
     {
+        public int ID { get; set; }
+
     }
 }
