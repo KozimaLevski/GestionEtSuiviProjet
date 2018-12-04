@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace esimed.serviceda.sgprojet
 {
-    public class Class1
+    public class TachesServiceDa : ITachesServiceDa
     {
     }
 }

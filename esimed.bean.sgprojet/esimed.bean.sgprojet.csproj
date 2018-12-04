@@ -40,8 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exigence.cs" />
+    <Compile Include="Jalon.cs" />
     <Compile Include="Projet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Realiser_Exigence_Tache.cs" />
+    <Compile Include="StatutTache.cs" />
+    <Compile Include="Tache.cs" />
+    <Compile Include="Terminer_Tache_Jalon.cs" />
+    <Compile Include="TypeNonFonctionnelle.cs" />
+    <Compile Include="Utilisateur.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

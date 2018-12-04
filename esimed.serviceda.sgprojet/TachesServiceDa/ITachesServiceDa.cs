@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace esimed.service.sgprojet
+namespace esimed.serviceda.sgprojet
 {
-    public class Class1
+    public interface ITachesServiceDa
     {
     }
 }

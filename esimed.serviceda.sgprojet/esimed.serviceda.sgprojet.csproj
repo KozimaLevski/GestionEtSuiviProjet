@@ -40,18 +40,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Data\Dst_Suivi_Projet.cs">
+      <DependentUpon>Dst_Suivi_Projet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Data\Dst_Suivi_Projet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Dst_Suivi_Projet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="FServiceDaSgprojet.cs" />
+    <Compile Include="ProjetsServiceDa\IProjetsServiceDa.cs" />
+    <Compile Include="ProjetsServiceDa\ProjetsServiceDa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="TachesServiceDa\ITachesServiceDa.cs" />
+    <Compile Include="TachesServiceDa\TachesServiceDa.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -70,6 +77,12 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\esimed.bean.sgprojet\esimed.bean.sgprojet.csproj">
+      <Project>{3e3789e4-5165-44c7-8097-1796aa00b8d4}</Project>
+      <Name>esimed.bean.sgprojet</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
