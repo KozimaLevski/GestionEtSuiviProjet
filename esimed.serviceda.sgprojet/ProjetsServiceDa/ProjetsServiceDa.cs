@@ -25,7 +25,7 @@ namespace esimed.serviceda.sgprojet
 
             if (getUtilisateur)
             {
-                // v_ressource.Responsable = FServiceDaSgprojet.
+                v_ressource.Responsable = FServiceDaSgprojet.CreateUtilisateursServiceDa().GetUtilisateur(v_ressource.IDResponsable,false,false,false,false);
             }
             if (getTaches)
             {
@@ -49,6 +49,15 @@ namespace esimed.serviceda.sgprojet
         {
             List<Projet> list_Projets = new List<Projet>();
             foreach (Dst_Suivi_Projet.ProjetsRow dr in new  ProjetsTableAdapter().GetProjets())
+            {
+                list_Projets.Add(FromDBToBean(dr, getUtilisateur, getTaches, getExigences, getJalons));
+            }
+            return list_Projets;
+        }
+        public List<Projet> GetProjetsByResponsable(int IDResponsable, bool getUtilisateur, bool getTaches, bool getExigences, bool getJalons)
+        {
+            List<Projet> list_Projets = new List<Projet>();
+            foreach (Dst_Suivi_Projet.ProjetsRow dr in new ProjetsTableAdapter().GetProjetsByResponsable(IDResponsable))
             {
                 list_Projets.Add(FromDBToBean(dr, getUtilisateur, getTaches, getExigences, getJalons));
             }

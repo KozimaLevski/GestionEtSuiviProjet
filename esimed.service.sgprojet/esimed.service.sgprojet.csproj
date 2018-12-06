@@ -41,6 +41,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FServiceSgprojet.cs" />
+    <Compile Include="JalonsService\IJalonsService.cs" />
+    <Compile Include="JalonsService\JalonsService.cs" />
+    <Compile Include="ExigencesService\IExigencesService.cs" />
+    <Compile Include="ExigencesService\ExigencesService.cs" />
+    <Compile Include="TachesService\ITachesService.cs" />
+    <Compile Include="TachesService\TachesService.cs" />
+    <Compile Include="UtilisateursService\IUtilisateursService.cs" />
+    <Compile Include="UtilisateursService\UtilisateursService.cs" />
     <Compile Include="ProjetsService\IProjetsService.cs" />
     <Compile Include="ProjetsService\ProjetsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

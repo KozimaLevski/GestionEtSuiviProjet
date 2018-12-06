@@ -11,6 +11,10 @@ namespace esimed.bean.sgprojet
         public int ID { get; set; }
         public string Nom { get; set; }
         public string Prenom { get; set; }
-        public int IsChefDeProjet { get; set; }
+        public bool IsChefDeProjet { get; set; }
+        public List<Projet> List_Projets { get; set; }
+        public List<Tache> List_Taches { get; set; }
+        public List<Exigence> List_Exigences { get; set; }
+        public List<Jalon> List_Jalons { get; set; }
     }
 }

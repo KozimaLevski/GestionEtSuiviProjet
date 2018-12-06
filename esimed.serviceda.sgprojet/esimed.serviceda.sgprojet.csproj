@@ -49,6 +49,12 @@
       <DependentUpon>Dst_Suivi_Projet.xsd</DependentUpon>
     </Compile>
     <Compile Include="FServiceDaSgprojet.cs" />
+    <Compile Include="ExigencesServiceDa\IExigencesServiceDa.cs" />
+    <Compile Include="ExigencesServiceDa\ExigencesServiceDa.cs" />
+    <Compile Include="JalonsServiceDa\IJalonsServiceDa.cs" />
+    <Compile Include="JalonsServiceDa\JalonsServiceDa.cs" />
+    <Compile Include="UtilisateursServiceDa\IUtilisateursServiceDa.cs" />
+    <Compile Include="UtilisateursServiceDa\UtilisateursServiceDa.cs" />
     <Compile Include="ProjetsServiceDa\IProjetsServiceDa.cs" />
     <Compile Include="ProjetsServiceDa\ProjetsServiceDa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

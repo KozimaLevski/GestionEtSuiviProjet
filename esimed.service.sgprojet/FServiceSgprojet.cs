@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using esimed.service.sgprojet;
 
-namespace esimed.serviceda.sgprojet
+namespace esimed.service.sgprojet
 {
     public class FServiceSgprojet
     {
@@ -13,9 +13,21 @@ namespace esimed.serviceda.sgprojet
         {
             return new ProjetsService();
         }
-        //public static ITachesService CreateTachesService()
-        //{
-        //    return new TachesService();
-        //}
+        public static ITachesService CreateTachesService()
+        {
+            return new TachesService();
+        }
+        public static IUtilisateursService CreateUtilisateursService()
+        {
+            return new UtilisateursService();
+        }
+        public static IExigencesService CreateExigencesService()
+        {
+            return new ExigencesService();
+        }
+        public static IJalonsService CreateJalonsService()
+        {
+            return new JalonsService();
+        }
     }
 }

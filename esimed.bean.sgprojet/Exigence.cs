@@ -11,7 +11,7 @@ namespace esimed.bean.sgprojet
         public int ID { get; set; }
         public string Trigramme { get; set; }
         public string Description { get; set; }
-        public int IsTypeFonctionnelle { get; set; }
+        public bool IsTypeFonctionnelle { get; set; }
         public int IDTypeNonFonctionnelle  { get; set; }
         public int IDProjet { get; set; }
         public Projet Projet { get; set; }

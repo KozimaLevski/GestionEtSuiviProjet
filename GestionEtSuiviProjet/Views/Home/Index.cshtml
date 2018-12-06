@@ -1,5 +1,7 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+
+    List<esimed.bean.sgprojet.Projet> ListeDesProjets = ViewBag.ListeDesProjets;
 }
 
 
@@ -10,8 +12,7 @@
         @*Liste des projets*@
         <div class="col-md-7">
             <h2>Supervision des projets</h2>
-
-
+            @Html.Partial("ListeProjets", ListeDesProjets)
         </div>
 
         @*Panel bouttons d'actions*@
@@ -26,38 +27,38 @@
 </div>
 
 @*<div class="container-fluid ">
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Crénaux libres</h2>
-            <p>
-                @Html.Partial("_crenaux_libres",
-                            new { testValue = "testValue", isDispo = "Disponnible" })
-            </p>
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Crénaux libres</h2>
+                <p>
+                    @Html.Partial("_crenaux_libres",
+                                new { testValue = "testValue", isDispo = "Disponnible" })
+                </p>
+            </div>
+            <div class="col-md-5">
+                <h2>Médecins libres</h2>
+                <p>
+                    @Html.Partial("_medecins_libres",
+                                new { testValue = "testValue", isDispo = "Disponnible" })
+                </p>
+            </div>
+            <div class="col-md-3">
+                <h2>Planning des salles</h2>
+                <p>
+                    @Html.Partial("_planning_salles",
+                                new { testValue = "testValue", isDispo = "Disponnible" })
+                </p>
+            </div>
         </div>
-        <div class="col-md-5">
-            <h2>Médecins libres</h2>
-            <p>
-                @Html.Partial("_medecins_libres",
-                            new { testValue = "testValue", isDispo = "Disponnible" })
-            </p>
+        <div class="row">
+            <div class="col-md-4">
+                <p><a class="btn btn-default" href="#">Gestion</a></p>
+            </div>
+            <div class="col-md-5">
+                <p><a class="btn btn-default" href="#">Gestion</a></p>
+            </div>
+            <div class="col-md-3">
+                <p><a class="btn btn-default" href="#">Gestion</a></p>
+            </div>
         </div>
-        <div class="col-md-3">
-            <h2>Planning des salles</h2>
-            <p>
-                @Html.Partial("_planning_salles",
-                            new { testValue = "testValue", isDispo = "Disponnible" })
-            </p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <p><a class="btn btn-default" href="#">Gestion</a></p>
-        </div>
-        <div class="col-md-5">
-            <p><a class="btn btn-default" href="#">Gestion</a></p>
-        </div>
-        <div class="col-md-3">
-            <p><a class="btn btn-default" href="#">Gestion</a></p>
-        </div>
-    </div>
-</div>*@
+    </div>*@

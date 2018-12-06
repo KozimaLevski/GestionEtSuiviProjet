@@ -17,5 +17,17 @@ namespace esimed.serviceda.sgprojet
         {
             return new TachesServiceDa();
         }
+        public static IUtilisateursServiceDa CreateUtilisateursServiceDa()
+        {
+            return new UtilisateursServiceDa();
+        }
+        public static IExigencesServiceDa CreateExigencesServiceDa()
+        {
+            return new ExigencesServiceDa();
+        }
+        public static IJalonsServiceDa CreateJalonsServiceDa()
+        {
+            return new JalonsServiceDa();
+        }
     }
 }

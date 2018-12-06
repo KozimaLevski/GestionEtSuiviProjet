@@ -17,6 +17,8 @@ namespace esimed.bean.sgprojet
         public int IDStatutTache { get; set; }
         public int IDResponsable { get; set; }
         public int IDTachePrecedenteRequise { get; set; }
+        public int IDProjet { get; set; }
+        public Projet Projet { get; set; }
         public StatutTache StatutTache { get; set; }
         public Utilisateur Responsable { get; set; }
         public Tache TachePrecedenteRequise { get; set; }

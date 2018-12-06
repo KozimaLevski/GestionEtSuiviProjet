@@ -8,7 +8,7 @@ namespace esimed.bean.sgprojet
 {
     public class Jalon
     {
-        public string ID { get; set; }
+        public int ID { get; set; }
         public string Libelle { get; set; }
         public DateTime DateLivraisonPrevue { get; set; }
         public DateTime DateLivraisonReele { get; set; }

@@ -1,7 +1,4 @@
-﻿@Model = Projet;
-
-
-<table class="table">
+﻿<table class="table">
     <thead>
         <tr>
             <th scope="col">Nom</th>
@@ -10,14 +7,8 @@
         </tr>
     </thead>
     <tbody>
-
-
-
-
-
-
         @{
-            foreach (var projet in Model.ListeDesProjets)
+            foreach (var projet in Model)
             {
                 <tr class="text-success">
                     <td>@projet.Nom (@projet.Trigramme)</td>
@@ -28,26 +19,5 @@
                 </tr>
             }
         }
-        <tr class="text-success">
-            <td>Club de Tennis</td>
-            <td>Gilles GIRARD</td>
-            <td>
-                <a href="~/Home/SuiviProjet?idProjet=1" class="btn btn-primary btn-sm" role="button">GO</a>
-            </td>
-        </tr>
-        <tr class="text-success">
-            <td>Site web bibliothèque</td>
-            <td>Baptiste LEQUEU</td>
-            <td>
-                <a href="~/Home/SuiviProjet?idProjet=2" class="btn btn-primary btn-sm" role="button">GO</a>
-            </td>
-        </tr>
-        <tr class="text-success">
-            <td>Projet 3</td>
-            <td>Mec 3</td>
-            <td>
-                <a href="~/Home/SuiviProjet?idProjet=3" class="btn btn-primary btn-sm" role="button">GO</a>
-            </td>
-        </tr>
     </tbody>
 </table>
