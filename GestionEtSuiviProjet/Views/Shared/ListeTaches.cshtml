@@ -1,29 +1,52 @@
-﻿<div class="row">
-    <div class="col-md-3">
-        <h5>Voir plus : </h5>
-    </div>
-    <div class="col-md-9">
-        <a href="?tachesorderby=1" class="btn btn-info btn-sm" role="button">Tâches terminés</a>
-        <a href="?tachesorderby=2" class="btn btn-info btn-sm" role="button">Tâches en cours</a>
-        <a href="?tachesorderby=3" class="btn btn-info btn-sm" role="button">Tâches en attente</a>
-    </div>
-</div>
+﻿@{
+    if (Model.Count != 0)
+    {
+        if (Model.ID != null && Model.ID != 0 && Model.Responsable != null)
+        {
+            <div class="row">
+                <div class="col-md-3">
+                    <h5>Voir plus : </h5>
+                </div>
+                <div class="col-md-9">
 
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">Nom</th>
-            <th scope="col">Responsable</th>
-            <th scope="col"></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr class="text-success">
-            <td>Nom de la tâche</td>
-            <td>Gilles GIRARD</td>
-            <td>
-                <a href="~/Home/Tache?idTache=1" class="btn btn-primary btn-sm" role="button">GO</a>
-            </td>
-        </tr>
-    </tbody>
-</table>
+                    <a href="~/Home/Taches?idProjet=@Model.Projet.ID&tacheorderby=1" class="btn btn-info btn-sm" role="button">Taches terminés</a>
+                    <a href="~/Home/Taches?idProjet=@Model.Projet.ID&tacheorderby=2" class="btn btn-info btn-sm" role="button">Taches en cours</a>
+                    <a href="~/Home/Taches?idProjet=@Model.Projet.ID&tacheorderby=3" class="btn btn-info btn-sm" role="button">Taches en attente</a>
+                </div>
+            </div>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Libelle</th>
+                        <th scope="col">Responsable</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr class="text-success">
+                        <td>@Model.Libelle</td>
+                        <td>@Model.Responsable.Nom @Model.Responsable.Prenom</td>
+                        <td>
+                            <a href="~/Home/Tache?idTache=@Model.ID" class="btn btn-primary btn-sm" role="button">GO</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+        }
+    }
+    else
+    {
+
+        <div class="row">
+            <div class="col-md-12">
+                <hr />
+                <p>Il n'y a pas encore de taches.</p>
+            </div>
+        </div>
+
+    }
+}

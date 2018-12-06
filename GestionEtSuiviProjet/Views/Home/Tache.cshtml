@@ -1,24 +1,29 @@
 ﻿
 @{
     ViewBag.Title = "Tâche";
+    if (ViewBag.ListeExigence == null)
+    {
+        ViewBag.ListeExigences = new List<esimed.bean.sgprojet.Exigence>();
+    }
+    List<esimed.bean.sgprojet.Exigence> ListeExigences = ViewBag.ListeExigences;
 }
 
 <h2>Visualisation d'une tâche</h2>
 
 <div class="container" style="background-color: #eaf5ff!important;border-radius: .4rem;">
-    <h1>Club de tenis : Libelle de la tache (Trigramme)</h1>
-    <p>Responsable de la tâche : Baptiste LEQUEU</p>
+    <h1>@ViewBag.ProjetSelect.Nom : @ViewBag.Tache.Nom (@ViewBag.Tache.Trigramme)</h1>
+    <p>Responsable de la tâche : @ViewBag.Tache.Responsable.Prenom @ViewBag.Tache.Responsable.Nom</p>
     <p>
-        Date de démarrage théorique : Jeudi 6 Décembre 2018
+        Date de démarrage théorique : @ViewBag.Tache.DateDebutTheoriqueExe Jeudi 6 Décembre 2018
     </p>
     <p>
-        Date de démarrage réelle : Vendredi 7 Décembre 2018
+        Date de démarrage réelle : @ViewBag.Tache.DateDemarrageReele Vendredi 7 Décembre 2018
     </p>
     <p>
-        Charge (jours) : 2 jours
+        Charge (jours) : @ViewBag.Tache.ChargeNbJours 2 jours
     </p>
     <p>
-        Statut : En cours / En attente / Terminée
+        Statut : @ViewBag.Tache.Status En cours / En attente / Terminée
     </p>
 </div>
 
@@ -31,11 +36,21 @@
         <table class="table">
             <tbody>
                 <tr class="text-success">
-                    <td>Nom de la tâche</td>
-                    <td>Gilles GIRARD</td>
-                    <td>
-                        <a href="~/Home/Jalon?idJalon=2" class="btn btn-primary btn-sm" role="button">GO</a>
-                    </td>
+                    @{ 
+                        if(ViewBag.TacheRequise != null)
+                        {
+                            <td>@ViewBag.TacheRequise.Nom</td>
+                            <td>@ViewBag.TacheRequise.Prenom @ViewBag.TacheRequise.Nom</td>
+                            <td>
+                                <a href="~/Home/Tache?idTache=@ViewBag.TacheRequise.ID" class="btn btn-primary btn-sm" role="button">GO</a>
+                            </td>
+                        }
+                        else
+                        {
+                            <p>Il n'y a pas de tache requise.</p>
+                        }
+                    }
+
                 </tr>
             </tbody>
         </table>
@@ -45,8 +60,7 @@
     <div class="col-md-7">
         <h3>Liste des exigences associés</h3>
         <p>
-            @Html.Partial("ListeExigences",
-                                          new { testValue = "testValue", isDispo = "Disponnible" })
+            @Html.Partial("ListeExigences", ListeExigences)
         </p>
     </div>
 

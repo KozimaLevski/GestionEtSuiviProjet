@@ -206,6 +206,21 @@
     <Content Include="Views\Home\Exigences.cshtml" />
     <Content Include="Views\Home\Taches.cshtml" />
     <Content Include="Views\Shared\ListeProjets.cshtml" />
+    <Content Include="Views\Home - Copier\About.cshtml" />
+    <Content Include="Views\Home - Copier\Contact.cshtml" />
+    <Content Include="Views\Home - Copier\Exigences.cshtml" />
+    <Content Include="Views\Home - Copier\Index.cshtml" />
+    <Content Include="Views\Home - Copier\Jalon.cshtml" />
+    <Content Include="Views\Home - Copier\Jalons.cshtml" />
+    <Content Include="Views\Home - Copier\NouveauJalon.cshtml" />
+    <Content Include="Views\Home - Copier\NouveauProjet.cshtml" />
+    <Content Include="Views\Home - Copier\NouvelleExigence.cshtml" />
+    <Content Include="Views\Home - Copier\NouvelleTache.cshtml" />
+    <Content Include="Views\Home - Copier\NouvelUtilisateur.cshtml" />
+    <Content Include="Views\Home - Copier\SuiviProjet.cshtml" />
+    <Content Include="Views\Home - Copier\Tache.cshtml" />
+    <Content Include="Views\Home - Copier\Taches.cshtml" />
+    <Content Include="Views\Home\Exigence.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

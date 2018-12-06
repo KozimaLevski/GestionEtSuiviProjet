@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "Nouvelle tâche";
+
+}
+
+@*
+Possède
+    “Libellé”, “Description des opérations à effectuer” (multi lignes)
+    Un identifiant, Un responsable
+    Est associé à plusieurs exigences
+Création
+    Date début théorique d’execution
+    Charge en nombre de jours
+    Un tache précédente devant être terminé (au besoin)
+Peut être réalisé par plusieurs exigences
+Peut être
+    Commencée (si date de démarrage réelle)
+    Non commencée
+    Terminée
+*@
+
+<h2>Ajoût d'une nouvelle tâche</h2>
+<hr />
+<form>
+    <div class="form-group row">
+        <label for="colFormLabel" class="col-sm-2 col-form-label">Nom de la tâche</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="colFormLabel" placeholder="Nom du projet" required>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="colFormLabel" class="col-sm-2 col-form-label">Trigramme</label>
+        <div class="col-sm-10">
+            <input type="text" maxlength="3" class="form-control" id="colFormLabel" placeholder="Trigramme Ex: ABC" required>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="colFormLabel" class="col-sm-2 col-form-label">Responsable</label>
+        <div class="col-sm-10">
+            <div class="dropdown">
+                <select class="form-control" id="sel1" required>
+                    <option value="0">Sélectionnez le résponsable</option>
+                    <option value="1">Baptiste LEQUEU</option>
+                    <option value="2">Gilles GIRARD</option>
+                    <option value="3">Benjamin CLEMENT</option>
+                </select>
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary">Valider</button>
+        </div>
+    </div>
+</form>
