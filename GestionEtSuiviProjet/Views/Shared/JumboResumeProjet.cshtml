@@ -1,9 +1,23 @@
-﻿<div class="container" style="background-color: #eaf5ff!important;border-radius: .4rem;">
-    <h1>Club de Tennis</h1>
-    <p class="lead">Description Lorem ipsum delor</p>
-    <p>Responsable : Gilles GIRARD</p>
-    <p>
-        Date théorique calculée de fin de projet : Vendredi 7 Décembre 2018
-    </p>
-    <p>Taux de couverture des exigences : 100%</p>
-</div>
+﻿
+
+
+@{
+    if (Model != null && Model.ID != null && Model.ID != 0 && Model.Responsable != null)
+    {
+
+        <div class="container" style="background-color: #eaf5ff!important;border-radius: .4rem;">
+            <h1>@Model.Nom (@Model.Trigramme)</h1>
+            <p class="lead">@Model.Description</p>
+            <p>Responsable : @Model.Responsable.Nom @Model.Responsable.Prenom</p> 
+            <p>
+                Date théorique calculée de fin de projet : Vendredi 7 Décembre 2018 <b>à faire</b>
+            </p>
+            <p>Taux de couverture des exigences : 100% <b>à faire</b></p>
+        </div>
+
+    }
+    else
+    {
+        <p>Vous n'avez pas sélectionné de projet. Veuillez retourner à l'accueil.</p>
+    }
+}

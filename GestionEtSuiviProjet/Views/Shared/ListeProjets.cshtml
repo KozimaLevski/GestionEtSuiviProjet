@@ -12,7 +12,7 @@
             {
                 <tr class="text-success">
                     <td>@projet.Nom (@projet.Trigramme)</td>
-                    <td>@projet.ID</td>
+                    <td>@projet.Responsable.Prenom @projet.Responsable.Nom</td>
                     <td>
                         <a href="~/Home/SuiviProjet?idProjet=@projet.ID" class="btn btn-primary btn-sm" role="button">GO</a>
                     </td>
