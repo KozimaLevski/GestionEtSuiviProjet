@@ -316,6 +316,16 @@ namespace GestionEtSuiviProjet.Controllers
         }
         public ActionResult NouvelleExigence()
         {
+
+            if(Request.Form != null)
+            {
+                //Request.Form["companyname"];
+
+                IExigencesService ServiceExigences = FServiceSgprojet.CreateExigencesService();
+                //ServiceExigences.CreerExigence(Trigramme, Description, IsTypeFonctionnelle, IDTypeNonFonctionnelle, IDProjet)
+
+
+            }
             return View();
         }
         public ActionResult NouvelleTache()

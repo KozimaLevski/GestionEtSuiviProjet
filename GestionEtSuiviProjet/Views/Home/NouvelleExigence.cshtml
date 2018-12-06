@@ -17,31 +17,38 @@ Peut être réalisé par plusieurs taches
 
 <h2>Ajoût d'une nouvelle exigence</h2>
 <hr />
-<form>
-    <div class="form-group row">
-        <label for="colFormLabel" class="col-sm-2 col-form-label">Nom du projet</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="colFormLabel" placeholder="Nom du projet" required>
-        </div>
-    </div>
+<form method="post">
     <div class="form-group row">
         <label for="colFormLabel" class="col-sm-2 col-form-label">Trigramme</label>
         <div class="col-sm-10">
-            <input type="text" maxlength="3" class="form-control" id="colFormLabel" placeholder="Trigramme Ex: ABC" required>
+            <input type="text" maxlength="3" class="form-control" id="trigramme" name="trigramme" placeholder="Trigramme Ex: ABC" required>
         </div>
     </div>
     <div class="form-group row">
-        <label for="colFormLabel" class="col-sm-2 col-form-label">Responsable</label>
+        <label for="colFormLabel" class="col-sm-2 col-form-label">Description</label>
+        <div class="col-sm-10">
+            <textarea class="form-control" id="description" name="description" placeholder="Phrase décrivant le besoin précis du client'" rows="3"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="colFormLabel" class="col-sm-2 col-form-label">Est de type fonctonnelle</label>
+        <div class="col-sm-10">
+            <input class="form-check-input" type="checkbox" value="" id="boolfonctionnelle" name="boolfonctionnelle">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="colFormLabel" class="col-sm-2 col-form-label">Porte sur :</label>
         <div class="col-sm-10">
             <div class="dropdown">
-                <select class="form-control" id="sel1" required>
-                    <option value="0">Sélectionnez le résponsable</option>
-                    <option value="1">Baptiste LEQUEU</option>
-                    <option value="2">Gilles GIRARD</option>
-                    <option value="3">Benjamin CLEMENT</option>
+                <select class="form-control" id="typesnonfonctionnel" name="typesnonfonctionnel" required>
+                    <option value="0">Sélectionnez le sujet</option>
+                    <option value="1">Des données</option>
+                    <option value="2">Les performences</option>
+                    <option value="3">Les interfaces utilisateur</option>
+                    <option value="4">La qualité les services</option>
                 </select>
             </div>
-
         </div>
     </div>
     <div class="form-group row">
