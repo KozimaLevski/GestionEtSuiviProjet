@@ -40,8 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FServiceSgprojet.cs" />
     <Compile Include="ProjetsService\IProjetsService.cs" />
-    <Compile Include="ProjetsService\ProjetService.cs" />
+    <Compile Include="ProjetsService\ProjetsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

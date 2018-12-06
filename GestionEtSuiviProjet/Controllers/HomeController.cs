@@ -10,21 +10,61 @@ namespace GestionEtSuiviProjet.Controllers
     {
         public ActionResult Index()
         {
+
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult NouveauProjet()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult NouvelUtilisateur()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
+
+        public ActionResult SuiviProjet()
+        {
+            return View();
+        }
+
+        public ActionResult Jalon()
+        {
+            return View();
+        }
+        public ActionResult Tache()
+        {
+            return View();
+        }
+        public ActionResult Exigence()
+        {
+            return View();
+        }
+        public ActionResult Jalons()
+        {
+            return View();
+        }
+        public ActionResult Taches()
+        {
+            return View();
+        }
+        public ActionResult Exigences()
+        {
+            return View();
+        }
+        public ActionResult NouvelleExigence()
+        {
+            return View();
+        }
+        public ActionResult NouvelleTache()
+        {
+            return View();
+        }
+        public ActionResult NouveauJalon()
+        {
+            return View();
+        }
+
     }
 }

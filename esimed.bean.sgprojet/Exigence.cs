@@ -13,6 +13,8 @@ namespace esimed.bean.sgprojet
         public string Description { get; set; }
         public int IsTypeFonctionnelle { get; set; }
         public int IDTypeNonFonctionnelle  { get; set; }
+        public int IDProjet { get; set; }
+        public Projet Projet { get; set; }
         public TypeNonFonctionnelle TypeNonFonctionnelle { get; set; }
         public List<Tache> List_Taches { get; set; }
         

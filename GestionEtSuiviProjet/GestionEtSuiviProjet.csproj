@@ -142,6 +142,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\JalonsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -185,10 +186,31 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_crenaux_libres.cshtml" />
+    <Content Include="Views\Shared\_medecins_libres.cshtml" />
+    <Content Include="Views\Shared\_partial_test.cshtml" />
+    <Content Include="Views\Shared\_planning_salles.cshtml" />
+    <Content Include="Views\Home\NouveauProjet.cshtml" />
+    <Content Include="Views\Home\NouvelUtilisateur.cshtml" />
+    <Content Include="Views\Home\SuiviProjet.cshtml" />
+    <Content Include="Views\Shared\ListeJalons.cshtml" />
+    <Content Include="Views\Shared\JumboResumeProjet.cshtml" />
+    <Content Include="Views\Home\Jalon.cshtml" />
+    <Content Include="Views\Shared\ListeTaches.cshtml" />
+    <Content Include="Views\Home\Tache.cshtml" />
+    <Content Include="Views\Shared\ListeExigences.cshtml" />
+    <Content Include="Views\Home\NouveauJalon.cshtml" />
+    <Content Include="Views\Home\NouvelleExigence.cshtml" />
+    <Content Include="Views\Home\NouvelleTache.cshtml" />
+    <Content Include="Views\Home\Jalons.cshtml" />
+    <Content Include="Views\Home\Exigences.cshtml" />
+    <Content Include="Views\Home\Taches.cshtml" />
+    <Content Include="Views\Shared\ListeProjets.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Jalons\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -202,6 +224,16 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\esimed.bean.sgprojet\esimed.bean.sgprojet.csproj">
+      <Project>{3e3789e4-5165-44c7-8097-1796aa00b8d4}</Project>
+      <Name>esimed.bean.sgprojet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\esimed.service.sgprojet\esimed.service.sgprojet.csproj">
+      <Project>{bccceeb0-fe40-4df5-b5ad-7625c3bf7b1a}</Project>
+      <Name>esimed.service.sgprojet</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

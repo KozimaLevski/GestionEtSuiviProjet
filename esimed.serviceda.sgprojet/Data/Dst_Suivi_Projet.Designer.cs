@@ -632,6 +632,8 @@ namespace esimed.serviceda.sgprojet.Data {
             
             private global::System.Data.DataColumn columnIDTypeNonFonctionnelle;
             
+            private global::System.Data.DataColumn columnIDProjet;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public ExigencesDataTable() {
@@ -707,6 +709,14 @@ namespace esimed.serviceda.sgprojet.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn IDProjetColumn {
+                get {
+                    return this.columnIDProjet;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -742,14 +752,15 @@ namespace esimed.serviceda.sgprojet.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ExigencesRow AddExigencesRow(string Trigramme, string Description, bool IsTypeFonctionnelle, TypesNonFonctionnellesRow parentTypesNonFonctionnellesRowByFK_Exigences_TypesNonFonctionnelles) {
+            public ExigencesRow AddExigencesRow(string Trigramme, string Description, bool IsTypeFonctionnelle, TypesNonFonctionnellesRow parentTypesNonFonctionnellesRowByFK_Exigences_TypesNonFonctionnelles, int IDProjet) {
                 ExigencesRow rowExigencesRow = ((ExigencesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Trigramme,
                         Description,
                         IsTypeFonctionnelle,
-                        null};
+                        null,
+                        IDProjet};
                 if ((parentTypesNonFonctionnellesRowByFK_Exigences_TypesNonFonctionnelles != null)) {
                     columnValuesArray[4] = parentTypesNonFonctionnellesRowByFK_Exigences_TypesNonFonctionnelles[0];
                 }
@@ -787,6 +798,7 @@ namespace esimed.serviceda.sgprojet.Data {
                 this.columnDescription = base.Columns["Description"];
                 this.columnIsTypeFonctionnelle = base.Columns["IsTypeFonctionnelle"];
                 this.columnIDTypeNonFonctionnelle = base.Columns["IDTypeNonFonctionnelle"];
+                this.columnIDProjet = base.Columns["IDProjet"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -802,6 +814,8 @@ namespace esimed.serviceda.sgprojet.Data {
                 base.Columns.Add(this.columnIsTypeFonctionnelle);
                 this.columnIDTypeNonFonctionnelle = new global::System.Data.DataColumn("IDTypeNonFonctionnelle", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIDTypeNonFonctionnelle);
+                this.columnIDProjet = new global::System.Data.DataColumn("IDProjet", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIDProjet);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -1261,6 +1275,8 @@ namespace esimed.serviceda.sgprojet.Data {
             
             private global::System.Data.DataColumn columnIDResponsable;
             
+            private global::System.Data.DataColumn columnIDProjet;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public JalonsDataTable() {
@@ -1336,6 +1352,14 @@ namespace esimed.serviceda.sgprojet.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn IDProjetColumn {
+                get {
+                    return this.columnIDProjet;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1371,14 +1395,15 @@ namespace esimed.serviceda.sgprojet.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public JalonsRow AddJalonsRow(string Libelle, System.DateTime DateLivraisonPrevue, System.DateTime DateLivraisonReele, UtilisateursRow parentUtilisateursRowByFK_Jalons_Utilisateurs) {
+            public JalonsRow AddJalonsRow(string Libelle, System.DateTime DateLivraisonPrevue, System.DateTime DateLivraisonReele, UtilisateursRow parentUtilisateursRowByFK_Jalons_Utilisateurs, int IDProjet) {
                 JalonsRow rowJalonsRow = ((JalonsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Libelle,
                         DateLivraisonPrevue,
                         DateLivraisonReele,
-                        null};
+                        null,
+                        IDProjet};
                 if ((parentUtilisateursRowByFK_Jalons_Utilisateurs != null)) {
                     columnValuesArray[4] = parentUtilisateursRowByFK_Jalons_Utilisateurs[0];
                 }
@@ -1416,6 +1441,7 @@ namespace esimed.serviceda.sgprojet.Data {
                 this.columnDateLivraisonPrevue = base.Columns["DateLivraisonPrevue"];
                 this.columnDateLivraisonReele = base.Columns["DateLivraisonReele"];
                 this.columnIDResponsable = base.Columns["IDResponsable"];
+                this.columnIDProjet = base.Columns["IDProjet"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1431,6 +1457,8 @@ namespace esimed.serviceda.sgprojet.Data {
                 base.Columns.Add(this.columnDateLivraisonReele);
                 this.columnIDResponsable = new global::System.Data.DataColumn("IDResponsable", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIDResponsable);
+                this.columnIDProjet = new global::System.Data.DataColumn("IDProjet", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIDProjet);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -3457,6 +3485,22 @@ namespace esimed.serviceda.sgprojet.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int IDProjet {
+                get {
+                    try {
+                        return ((int)(this[this.tableExigences.IDProjetColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'IDProjet\' dans la table \'Exigences\' est DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExigences.IDProjetColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public TypesNonFonctionnellesRow TypesNonFonctionnellesRow {
                 get {
                     return ((TypesNonFonctionnellesRow)(this.GetParentRow(this.Table.ParentRelations["FK_Exigences_TypesNonFonctionnelles"])));
@@ -3512,6 +3556,18 @@ namespace esimed.serviceda.sgprojet.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetIDTypeNonFonctionnelleNull() {
                 this[this.tableExigences.IDTypeNonFonctionnelleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsIDProjetNull() {
+                return this.IsNull(this.tableExigences.IDProjetColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetIDProjetNull() {
+                this[this.tableExigences.IDProjetColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3763,6 +3819,22 @@ namespace esimed.serviceda.sgprojet.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int IDProjet {
+                get {
+                    try {
+                        return ((int)(this[this.tableJalons.IDProjetColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'IDProjet\' dans la table \'Jalons\' est DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableJalons.IDProjetColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public UtilisateursRow UtilisateursRow {
                 get {
                     return ((UtilisateursRow)(this.GetParentRow(this.Table.ParentRelations["FK_Jalons_Utilisateurs"])));
@@ -3818,6 +3890,18 @@ namespace esimed.serviceda.sgprojet.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetIDResponsableNull() {
                 this[this.tableJalons.IDResponsableColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsIDProjetNull() {
+                return this.IsNull(this.tableJalons.IDProjetColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetIDProjetNull() {
+                this[this.tableJalons.IDProjetColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4963,10 +5047,11 @@ namespace esimed.serviceda.sgprojet.Data.Dst_Suivi_ProjetTableAdapters {
             tableMapping.ColumnMappings.Add("Description", "Description");
             tableMapping.ColumnMappings.Add("IsTypeFonctionnelle", "IsTypeFonctionnelle");
             tableMapping.ColumnMappings.Add("IDTypeNonFonctionnelle", "IDTypeNonFonctionnelle");
+            tableMapping.ColumnMappings.Add("IDProjet", "IDProjet");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Exigences] WHERE (([ID] = @Original_ID) AND ((@IsNull_Trigramme = 1 AND [Trigramme] IS NULL) OR ([Trigramme] = @Original_Trigramme)) AND ((@IsNull_Description = 1 AND [Description] IS NULL) OR ([Description] = @Original_Description)) AND ((@IsNull_IsTypeFonctionnelle = 1 AND [IsTypeFonctionnelle] IS NULL) OR ([IsTypeFonctionnelle] = @Original_IsTypeFonctionnelle)) AND ((@IsNull_IDTypeNonFonctionnelle = 1 AND [IDTypeNonFonctionnelle] IS NULL) OR ([IDTypeNonFonctionnelle] = @Original_IDTypeNonFonctionnelle)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Exigences] WHERE (([ID] = @Original_ID) AND ((@IsNull_Trigramme = 1 AND [Trigramme] IS NULL) OR ([Trigramme] = @Original_Trigramme)) AND ((@IsNull_Description = 1 AND [Description] IS NULL) OR ([Description] = @Original_Description)) AND ((@IsNull_IsTypeFonctionnelle = 1 AND [IsTypeFonctionnelle] IS NULL) OR ([IsTypeFonctionnelle] = @Original_IsTypeFonctionnelle)) AND ((@IsNull_IDTypeNonFonctionnelle = 1 AND [IDTypeNonFonctionnelle] IS NULL) OR ([IDTypeNonFonctionnelle] = @Original_IDTypeNonFonctionnelle)) AND ((@IsNull_IDProjet = 1 AND [IDProjet] IS NULL) OR ([IDProjet] = @Original_IDProjet)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Trigramme", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Trigramme", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -4977,24 +5062,28 @@ namespace esimed.serviceda.sgprojet.Data.Dst_Suivi_ProjetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IsTypeFonctionnelle", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IsTypeFonctionnelle", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_IDTypeNonFonctionnelle", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDTypeNonFonctionnelle", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDTypeNonFonctionnelle", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDTypeNonFonctionnelle", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_IDProjet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDProjet", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDProjet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDProjet", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Exigences] ([Trigramme], [Description], [IsTypeFonctionnelle], [IDTypeNonFonctionnelle]) VALUES (@Trigramme, @Description, @IsTypeFonctionnelle, @IDTypeNonFonctionnelle);
-SELECT ID, Trigramme, Description, IsTypeFonctionnelle, IDTypeNonFonctionnelle FROM Exigences WHERE (ID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Exigences] ([Trigramme], [Description], [IsTypeFonctionnelle], [IDTypeNonFonctionnelle], [IDProjet]) VALUES (@Trigramme, @Description, @IsTypeFonctionnelle, @IDTypeNonFonctionnelle, @IDProjet);
+SELECT ID, Trigramme, Description, IsTypeFonctionnelle, IDTypeNonFonctionnelle, IDProjet FROM Exigences WHERE (ID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Trigramme", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Trigramme", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Description", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsTypeFonctionnelle", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IsTypeFonctionnelle", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDTypeNonFonctionnelle", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDTypeNonFonctionnelle", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDProjet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDProjet", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Exigences] SET [Trigramme] = @Trigramme, [Description] = @Description, [IsTypeFonctionnelle] = @IsTypeFonctionnelle, [IDTypeNonFonctionnelle] = @IDTypeNonFonctionnelle WHERE (([ID] = @Original_ID) AND ((@IsNull_Trigramme = 1 AND [Trigramme] IS NULL) OR ([Trigramme] = @Original_Trigramme)) AND ((@IsNull_Description = 1 AND [Description] IS NULL) OR ([Description] = @Original_Description)) AND ((@IsNull_IsTypeFonctionnelle = 1 AND [IsTypeFonctionnelle] IS NULL) OR ([IsTypeFonctionnelle] = @Original_IsTypeFonctionnelle)) AND ((@IsNull_IDTypeNonFonctionnelle = 1 AND [IDTypeNonFonctionnelle] IS NULL) OR ([IDTypeNonFonctionnelle] = @Original_IDTypeNonFonctionnelle)));
-SELECT ID, Trigramme, Description, IsTypeFonctionnelle, IDTypeNonFonctionnelle FROM Exigences WHERE (ID = @ID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Exigences] SET [Trigramme] = @Trigramme, [Description] = @Description, [IsTypeFonctionnelle] = @IsTypeFonctionnelle, [IDTypeNonFonctionnelle] = @IDTypeNonFonctionnelle, [IDProjet] = @IDProjet WHERE (([ID] = @Original_ID) AND ((@IsNull_Trigramme = 1 AND [Trigramme] IS NULL) OR ([Trigramme] = @Original_Trigramme)) AND ((@IsNull_Description = 1 AND [Description] IS NULL) OR ([Description] = @Original_Description)) AND ((@IsNull_IsTypeFonctionnelle = 1 AND [IsTypeFonctionnelle] IS NULL) OR ([IsTypeFonctionnelle] = @Original_IsTypeFonctionnelle)) AND ((@IsNull_IDTypeNonFonctionnelle = 1 AND [IDTypeNonFonctionnelle] IS NULL) OR ([IDTypeNonFonctionnelle] = @Original_IDTypeNonFonctionnelle)) AND ((@IsNull_IDProjet = 1 AND [IDProjet] IS NULL) OR ([IDProjet] = @Original_IDProjet)));
+SELECT ID, Trigramme, Description, IsTypeFonctionnelle, IDTypeNonFonctionnelle, IDProjet FROM Exigences WHERE (ID = @ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Trigramme", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Trigramme", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Description", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsTypeFonctionnelle", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IsTypeFonctionnelle", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDTypeNonFonctionnelle", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDTypeNonFonctionnelle", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDProjet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDProjet", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Trigramme", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Trigramme", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Trigramme", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Trigramme", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -5004,6 +5093,8 @@ SELECT ID, Trigramme, Description, IsTypeFonctionnelle, IDTypeNonFonctionnelle F
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IsTypeFonctionnelle", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IsTypeFonctionnelle", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_IDTypeNonFonctionnelle", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDTypeNonFonctionnelle", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDTypeNonFonctionnelle", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDTypeNonFonctionnelle", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_IDProjet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDProjet", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDProjet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDProjet", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -5020,19 +5111,19 @@ SELECT ID, Trigramme, Description, IsTypeFonctionnelle, IDTypeNonFonctionnelle F
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, Trigramme, Description, IsTypeFonctionnelle, IDTypeNonFonctionnelle FR" +
-                "OM dbo.Exigences";
+            this._commandCollection[0].CommandText = "SELECT ID, Trigramme, Description, IsTypeFonctionnelle, IDTypeNonFonctionnelle, I" +
+                "DProjet\r\nFROM     Exigences";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT ID, Trigramme, Description, IsTypeFonctionnelle, IDTypeNonFonctionnelle\r\nF" +
-                "ROM     Exigences\r\nWHERE  (ID = @id)";
+            this._commandCollection[1].CommandText = "SELECT Description, ID, IDProjet, IDTypeNonFonctionnelle, IsTypeFonctionnelle, Tr" +
+                "igramme FROM Exigences WHERE (ID = @id)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT ID, Trigramme, Description, IsTypeFonctionnelle, IDTypeNonFonctionnelle\r\nF" +
-                "ROM     Exigences";
+            this._commandCollection[2].CommandText = "SELECT Description, ID, IDProjet, IDTypeNonFonctionnelle, IsTypeFonctionnelle, Tr" +
+                "igramme FROM Exigences";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
@@ -5179,7 +5270,7 @@ SELECT ID, Trigramme, Description, IsTypeFonctionnelle, IDTypeNonFonctionnelle F
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID, string Original_Trigramme, string Original_Description, global::System.Nullable<bool> Original_IsTypeFonctionnelle, global::System.Nullable<int> Original_IDTypeNonFonctionnelle) {
+        public virtual int Delete(int Original_ID, string Original_Trigramme, string Original_Description, global::System.Nullable<bool> Original_IsTypeFonctionnelle, global::System.Nullable<int> Original_IDTypeNonFonctionnelle, global::System.Nullable<int> Original_IDProjet) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
             if ((Original_Trigramme == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -5213,6 +5304,14 @@ SELECT ID, Trigramme, Description, IsTypeFonctionnelle, IDTypeNonFonctionnelle F
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
+            if ((Original_IDProjet.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((int)(Original_IDProjet.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5233,7 +5332,7 @@ SELECT ID, Trigramme, Description, IsTypeFonctionnelle, IDTypeNonFonctionnelle F
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Trigramme, string Description, global::System.Nullable<bool> IsTypeFonctionnelle, global::System.Nullable<int> IDTypeNonFonctionnelle) {
+        public virtual int Insert(string Trigramme, string Description, global::System.Nullable<bool> IsTypeFonctionnelle, global::System.Nullable<int> IDTypeNonFonctionnelle, global::System.Nullable<int> IDProjet) {
             if ((Trigramme == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -5258,6 +5357,12 @@ SELECT ID, Trigramme, Description, IsTypeFonctionnelle, IDTypeNonFonctionnelle F
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
+            if ((IDProjet.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(IDProjet.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5278,7 +5383,7 @@ SELECT ID, Trigramme, Description, IsTypeFonctionnelle, IDTypeNonFonctionnelle F
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Trigramme, string Description, global::System.Nullable<bool> IsTypeFonctionnelle, global::System.Nullable<int> IDTypeNonFonctionnelle, int Original_ID, string Original_Trigramme, string Original_Description, global::System.Nullable<bool> Original_IsTypeFonctionnelle, global::System.Nullable<int> Original_IDTypeNonFonctionnelle, int ID) {
+        public virtual int Update(string Trigramme, string Description, global::System.Nullable<bool> IsTypeFonctionnelle, global::System.Nullable<int> IDTypeNonFonctionnelle, global::System.Nullable<int> IDProjet, int Original_ID, string Original_Trigramme, string Original_Description, global::System.Nullable<bool> Original_IsTypeFonctionnelle, global::System.Nullable<int> Original_IDTypeNonFonctionnelle, global::System.Nullable<int> Original_IDProjet, int ID) {
             if ((Trigramme == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -5303,40 +5408,54 @@ SELECT ID, Trigramme, Description, IsTypeFonctionnelle, IDTypeNonFonctionnelle F
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_ID));
-            if ((Original_Trigramme == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            if ((IDProjet.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(IDProjet.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_Trigramme));
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_ID));
+            if ((Original_Trigramme == null)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Trigramme));
             }
             if ((Original_Description == null)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Description));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Description));
             }
             if ((Original_IsTypeFonctionnelle.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((bool)(Original_IsTypeFonctionnelle.Value));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((bool)(Original_IsTypeFonctionnelle.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             if ((Original_IDTypeNonFonctionnelle.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_IDTypeNonFonctionnelle.Value));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_IDTypeNonFonctionnelle.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(ID));
+            if ((Original_IDProjet.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Original_IDProjet.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5357,8 +5476,8 @@ SELECT ID, Trigramme, Description, IsTypeFonctionnelle, IDTypeNonFonctionnelle F
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Trigramme, string Description, global::System.Nullable<bool> IsTypeFonctionnelle, global::System.Nullable<int> IDTypeNonFonctionnelle, int Original_ID, string Original_Trigramme, string Original_Description, global::System.Nullable<bool> Original_IsTypeFonctionnelle, global::System.Nullable<int> Original_IDTypeNonFonctionnelle) {
-            return this.Update(Trigramme, Description, IsTypeFonctionnelle, IDTypeNonFonctionnelle, Original_ID, Original_Trigramme, Original_Description, Original_IsTypeFonctionnelle, Original_IDTypeNonFonctionnelle, Original_ID);
+        public virtual int Update(string Trigramme, string Description, global::System.Nullable<bool> IsTypeFonctionnelle, global::System.Nullable<int> IDTypeNonFonctionnelle, global::System.Nullable<int> IDProjet, int Original_ID, string Original_Trigramme, string Original_Description, global::System.Nullable<bool> Original_IsTypeFonctionnelle, global::System.Nullable<int> Original_IDTypeNonFonctionnelle, global::System.Nullable<int> Original_IDProjet) {
+            return this.Update(Trigramme, Description, IsTypeFonctionnelle, IDTypeNonFonctionnelle, IDProjet, Original_ID, Original_Trigramme, Original_Description, Original_IsTypeFonctionnelle, Original_IDTypeNonFonctionnelle, Original_IDProjet, Original_ID);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6246,10 +6365,11 @@ SELECT ID, Nom, Prenom, IsChefDeProjet FROM Utilisateurs WHERE (ID = @ID)";
             tableMapping.ColumnMappings.Add("DateLivraisonPrevue", "DateLivraisonPrevue");
             tableMapping.ColumnMappings.Add("DateLivraisonReele", "DateLivraisonReele");
             tableMapping.ColumnMappings.Add("IDResponsable", "IDResponsable");
+            tableMapping.ColumnMappings.Add("IDProjet", "IDProjet");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Jalons] WHERE (([ID] = @Original_ID) AND ((@IsNull_Libelle = 1 AND [Libelle] IS NULL) OR ([Libelle] = @Original_Libelle)) AND ((@IsNull_DateLivraisonPrevue = 1 AND [DateLivraisonPrevue] IS NULL) OR ([DateLivraisonPrevue] = @Original_DateLivraisonPrevue)) AND ((@IsNull_DateLivraisonReele = 1 AND [DateLivraisonReele] IS NULL) OR ([DateLivraisonReele] = @Original_DateLivraisonReele)) AND ((@IsNull_IDResponsable = 1 AND [IDResponsable] IS NULL) OR ([IDResponsable] = @Original_IDResponsable)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Jalons] WHERE (([ID] = @Original_ID) AND ((@IsNull_Libelle = 1 AND [Libelle] IS NULL) OR ([Libelle] = @Original_Libelle)) AND ((@IsNull_DateLivraisonPrevue = 1 AND [DateLivraisonPrevue] IS NULL) OR ([DateLivraisonPrevue] = @Original_DateLivraisonPrevue)) AND ((@IsNull_DateLivraisonReele = 1 AND [DateLivraisonReele] IS NULL) OR ([DateLivraisonReele] = @Original_DateLivraisonReele)) AND ((@IsNull_IDResponsable = 1 AND [IDResponsable] IS NULL) OR ([IDResponsable] = @Original_IDResponsable)) AND ((@IsNull_IDProjet = 1 AND [IDProjet] IS NULL) OR ([IDProjet] = @Original_IDProjet)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Libelle", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Libelle", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -6260,24 +6380,28 @@ SELECT ID, Nom, Prenom, IsChefDeProjet FROM Utilisateurs WHERE (ID = @ID)";
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DateLivraisonReele", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateLivraisonReele", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_IDResponsable", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDResponsable", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDResponsable", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDResponsable", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_IDProjet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDProjet", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDProjet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDProjet", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Jalons] ([Libelle], [DateLivraisonPrevue], [DateLivraisonReele], [IDResponsable]) VALUES (@Libelle, @DateLivraisonPrevue, @DateLivraisonReele, @IDResponsable);
-SELECT ID, Libelle, DateLivraisonPrevue, DateLivraisonReele, IDResponsable FROM Jalons WHERE (ID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Jalons] ([Libelle], [DateLivraisonPrevue], [DateLivraisonReele], [IDResponsable], [IDProjet]) VALUES (@Libelle, @DateLivraisonPrevue, @DateLivraisonReele, @IDResponsable, @IDProjet);
+SELECT ID, Libelle, DateLivraisonPrevue, DateLivraisonReele, IDResponsable, IDProjet FROM Jalons WHERE (ID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Libelle", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Libelle", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateLivraisonPrevue", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateLivraisonPrevue", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateLivraisonReele", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateLivraisonReele", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDResponsable", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDResponsable", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDProjet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDProjet", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Jalons] SET [Libelle] = @Libelle, [DateLivraisonPrevue] = @DateLivraisonPrevue, [DateLivraisonReele] = @DateLivraisonReele, [IDResponsable] = @IDResponsable WHERE (([ID] = @Original_ID) AND ((@IsNull_Libelle = 1 AND [Libelle] IS NULL) OR ([Libelle] = @Original_Libelle)) AND ((@IsNull_DateLivraisonPrevue = 1 AND [DateLivraisonPrevue] IS NULL) OR ([DateLivraisonPrevue] = @Original_DateLivraisonPrevue)) AND ((@IsNull_DateLivraisonReele = 1 AND [DateLivraisonReele] IS NULL) OR ([DateLivraisonReele] = @Original_DateLivraisonReele)) AND ((@IsNull_IDResponsable = 1 AND [IDResponsable] IS NULL) OR ([IDResponsable] = @Original_IDResponsable)));
-SELECT ID, Libelle, DateLivraisonPrevue, DateLivraisonReele, IDResponsable FROM Jalons WHERE (ID = @ID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Jalons] SET [Libelle] = @Libelle, [DateLivraisonPrevue] = @DateLivraisonPrevue, [DateLivraisonReele] = @DateLivraisonReele, [IDResponsable] = @IDResponsable, [IDProjet] = @IDProjet WHERE (([ID] = @Original_ID) AND ((@IsNull_Libelle = 1 AND [Libelle] IS NULL) OR ([Libelle] = @Original_Libelle)) AND ((@IsNull_DateLivraisonPrevue = 1 AND [DateLivraisonPrevue] IS NULL) OR ([DateLivraisonPrevue] = @Original_DateLivraisonPrevue)) AND ((@IsNull_DateLivraisonReele = 1 AND [DateLivraisonReele] IS NULL) OR ([DateLivraisonReele] = @Original_DateLivraisonReele)) AND ((@IsNull_IDResponsable = 1 AND [IDResponsable] IS NULL) OR ([IDResponsable] = @Original_IDResponsable)) AND ((@IsNull_IDProjet = 1 AND [IDProjet] IS NULL) OR ([IDProjet] = @Original_IDProjet)));
+SELECT ID, Libelle, DateLivraisonPrevue, DateLivraisonReele, IDResponsable, IDProjet FROM Jalons WHERE (ID = @ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Libelle", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Libelle", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateLivraisonPrevue", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateLivraisonPrevue", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateLivraisonReele", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateLivraisonReele", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDResponsable", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDResponsable", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDProjet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDProjet", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Libelle", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Libelle", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Libelle", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Libelle", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -6287,6 +6411,8 @@ SELECT ID, Libelle, DateLivraisonPrevue, DateLivraisonReele, IDResponsable FROM 
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DateLivraisonReele", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateLivraisonReele", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_IDResponsable", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDResponsable", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDResponsable", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDResponsable", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_IDProjet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDProjet", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDProjet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDProjet", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -6303,25 +6429,25 @@ SELECT ID, Libelle, DateLivraisonPrevue, DateLivraisonReele, IDResponsable FROM 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, Libelle, DateLivraisonPrevue, DateLivraisonReele, IDResponsable FROM d" +
-                "bo.Jalons";
+            this._commandCollection[0].CommandText = "SELECT ID, Libelle, DateLivraisonPrevue, DateLivraisonReele, IDResponsable, IDPro" +
+                "jet\r\nFROM     Jalons";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT ID, Libelle, DateLivraisonPrevue, DateLivraisonReele, IDResponsable FROM d" +
-                "bo.Jalons\r\nwhere ID = @id";
+            this._commandCollection[1].CommandText = "SELECT DateLivraisonPrevue, DateLivraisonReele, ID, IDProjet, IDResponsable, Libe" +
+                "lle\r\nFROM     Jalons\r\nWHERE  (ID = @id)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT ID, Libelle, DateLivraisonPrevue, DateLivraisonReele, IDResponsable\r\nFROM " +
-                "    Jalons";
+            this._commandCollection[2].CommandText = "SELECT DateLivraisonPrevue, DateLivraisonReele, ID, IDProjet, IDResponsable, Libe" +
+                "lle FROM Jalons";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = @"INSERT INTO Jalons
-                  (Libelle, DateLivraisonPrevue, DateLivraisonReele, IDResponsable)
-VALUES (@Libelle,@DateLivraisonPrevue,@DateLivraisonReele,@IDResponsable); 
+                  (Libelle, DateLivraisonPrevue, DateLivraisonReele, IDResponsable, IDProjet)
+VALUES (@Libelle,@DateLivraisonPrevue,@DateLivraisonReele,@IDResponsable,);  
 SELECT ID, Libelle, DateLivraisonPrevue, DateLivraisonReele, IDResponsable FROM Jalons WHERE (ID = SCOPE_IDENTITY())";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Libelle", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Libelle", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -6331,12 +6457,12 @@ SELECT ID, Libelle, DateLivraisonPrevue, DateLivraisonReele, IDResponsable FROM 
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
             this._commandCollection[4].CommandText = @"UPDATE Jalons
-SET          Libelle = @Libelle, DateLivraisonPrevue = @DateLivraisonPrevue, DateLivraisonReele = @DateLivraisonReele, IDResponsable = @IDResponsable
+SET          Libelle = @Libelle, DateLivraisonPrevue = @DateLivraisonPrevue, DateLivraisonReele = @DateLivraisonReele, IDResponsable = @IDResponsable, IDProjet =
 WHERE  (ID = @Original_ID) AND (@IsNull_Libelle = 1 AND Libelle IS NULL OR
                   Libelle = @Original_Libelle) AND (@IsNull_DateLivraisonPrevue = 1 AND DateLivraisonPrevue IS NULL OR
                   DateLivraisonPrevue = @Original_DateLivraisonPrevue) AND (@IsNull_DateLivraisonReele = 1 AND DateLivraisonReele IS NULL OR
                   DateLivraisonReele = @Original_DateLivraisonReele) AND (@IsNull_IDResponsable = 1 AND IDResponsable IS NULL OR
-                  IDResponsable = @Original_IDResponsable); 
+                  IDResponsable = @Original_IDResponsable);  
 SELECT ID, Libelle, DateLivraisonPrevue, DateLivraisonReele, IDResponsable FROM Jalons WHERE (ID = @ID)";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Libelle", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Libelle", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -6462,7 +6588,7 @@ SELECT ID, Libelle, DateLivraisonPrevue, DateLivraisonReele, IDResponsable FROM 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID, string Original_Libelle, global::System.Nullable<global::System.DateTime> Original_DateLivraisonPrevue, global::System.Nullable<global::System.DateTime> Original_DateLivraisonReele, global::System.Nullable<int> Original_IDResponsable) {
+        public virtual int Delete(int Original_ID, string Original_Libelle, global::System.Nullable<global::System.DateTime> Original_DateLivraisonPrevue, global::System.Nullable<global::System.DateTime> Original_DateLivraisonReele, global::System.Nullable<int> Original_IDResponsable, global::System.Nullable<int> Original_IDProjet) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
             if ((Original_Libelle == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -6496,6 +6622,14 @@ SELECT ID, Libelle, DateLivraisonPrevue, DateLivraisonReele, IDResponsable FROM 
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
+            if ((Original_IDProjet.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((int)(Original_IDProjet.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6516,7 +6650,7 @@ SELECT ID, Libelle, DateLivraisonPrevue, DateLivraisonReele, IDResponsable FROM 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Libelle, global::System.Nullable<global::System.DateTime> DateLivraisonPrevue, global::System.Nullable<global::System.DateTime> DateLivraisonReele, global::System.Nullable<int> IDResponsable) {
+        public virtual int Insert(string Libelle, global::System.Nullable<global::System.DateTime> DateLivraisonPrevue, global::System.Nullable<global::System.DateTime> DateLivraisonReele, global::System.Nullable<int> IDResponsable, global::System.Nullable<int> IDProjet) {
             if ((Libelle == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -6541,6 +6675,12 @@ SELECT ID, Libelle, DateLivraisonPrevue, DateLivraisonReele, IDResponsable FROM 
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
+            if ((IDProjet.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(IDProjet.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6561,7 +6701,7 @@ SELECT ID, Libelle, DateLivraisonPrevue, DateLivraisonReele, IDResponsable FROM 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Libelle, global::System.Nullable<global::System.DateTime> DateLivraisonPrevue, global::System.Nullable<global::System.DateTime> DateLivraisonReele, global::System.Nullable<int> IDResponsable, int Original_ID, string Original_Libelle, global::System.Nullable<global::System.DateTime> Original_DateLivraisonPrevue, global::System.Nullable<global::System.DateTime> Original_DateLivraisonReele, global::System.Nullable<int> Original_IDResponsable, int ID) {
+        public virtual int Update(string Libelle, global::System.Nullable<global::System.DateTime> DateLivraisonPrevue, global::System.Nullable<global::System.DateTime> DateLivraisonReele, global::System.Nullable<int> IDResponsable, global::System.Nullable<int> IDProjet, int Original_ID, string Original_Libelle, global::System.Nullable<global::System.DateTime> Original_DateLivraisonPrevue, global::System.Nullable<global::System.DateTime> Original_DateLivraisonReele, global::System.Nullable<int> Original_IDResponsable, global::System.Nullable<int> Original_IDProjet, int ID) {
             if ((Libelle == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -6586,40 +6726,54 @@ SELECT ID, Libelle, DateLivraisonPrevue, DateLivraisonReele, IDResponsable FROM 
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_ID));
-            if ((Original_Libelle == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            if ((IDProjet.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(IDProjet.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_Libelle));
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_ID));
+            if ((Original_Libelle == null)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Libelle));
             }
             if ((Original_DateLivraisonPrevue.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(Original_DateLivraisonPrevue.Value));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(Original_DateLivraisonPrevue.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             if ((Original_DateLivraisonReele.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(Original_DateLivraisonReele.Value));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Original_DateLivraisonReele.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             if ((Original_IDResponsable.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_IDResponsable.Value));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_IDResponsable.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(ID));
+            if ((Original_IDProjet.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Original_IDProjet.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6640,8 +6794,8 @@ SELECT ID, Libelle, DateLivraisonPrevue, DateLivraisonReele, IDResponsable FROM 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Libelle, global::System.Nullable<global::System.DateTime> DateLivraisonPrevue, global::System.Nullable<global::System.DateTime> DateLivraisonReele, global::System.Nullable<int> IDResponsable, int Original_ID, string Original_Libelle, global::System.Nullable<global::System.DateTime> Original_DateLivraisonPrevue, global::System.Nullable<global::System.DateTime> Original_DateLivraisonReele, global::System.Nullable<int> Original_IDResponsable) {
-            return this.Update(Libelle, DateLivraisonPrevue, DateLivraisonReele, IDResponsable, Original_ID, Original_Libelle, Original_DateLivraisonPrevue, Original_DateLivraisonReele, Original_IDResponsable, Original_ID);
+        public virtual int Update(string Libelle, global::System.Nullable<global::System.DateTime> DateLivraisonPrevue, global::System.Nullable<global::System.DateTime> DateLivraisonReele, global::System.Nullable<int> IDResponsable, global::System.Nullable<int> IDProjet, int Original_ID, string Original_Libelle, global::System.Nullable<global::System.DateTime> Original_DateLivraisonPrevue, global::System.Nullable<global::System.DateTime> Original_DateLivraisonReele, global::System.Nullable<int> Original_IDResponsable, global::System.Nullable<int> Original_IDProjet) {
+            return this.Update(Libelle, DateLivraisonPrevue, DateLivraisonReele, IDResponsable, IDProjet, Original_ID, Original_Libelle, Original_DateLivraisonPrevue, Original_DateLivraisonReele, Original_IDResponsable, Original_IDProjet, Original_ID);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

@@ -1,0 +1,57 @@
+﻿@{    
+    ViewBag.Title = "Visualisation d'un projet";
+}
+
+<div class="container-fluid ">
+    <div class="row">
+        <h3>Visualisation d'un projet</h3>
+    </div>
+    <div class="row">
+        @*
+        Des taches à réaliser
+        Modes de suivi
+            Par Projet
+            En fonction des jalons terminés ou par jalon
+            En fonction des taches terminées dans le jalon en cours de développement
+        Consulter la date théorique calculée
+            de fin d’un jalon
+            de fin de projet
+        Comparer dates théoriques aux dates prévues
+        Avoir une idée de l’avancement globale (à l’aide du taux de couverture des exigences)(ce qui doit ou devrait être fait)
+        *@
+
+        <h2>Suivi du projet</h2>
+        <div class="col-md-5">
+            <h3>Modes de suivi</h3>
+            <br />
+            <a href="~/Home/Exigences" class="btn btn-primary btn-lg btn-block">Gérer les Exigences</a>
+            <a href="~/Home/Taches" class="btn btn-primary btn-lg btn-block">Gérer les Tâches</a>
+            <a href="~/Home/Jalons" class="btn btn-primary btn-lg btn-block">Ajouter un Jalon</a>
+        </div>
+
+        <div class="col-md-7">
+            <p>
+                @Html.Partial("JumboResumeProjet",
+                    new { testValue = "testValue", isDispo = "Disponnible" })
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <hr />
+        <div class="col-md-6">
+            <h3>Aperçu des prochains jalons</h3>
+            <p>
+                @Html.Partial("ListeJalons",
+                    new { testValue = "testValue", isDispo = "Disponnible" })
+            </p>
+        </div>
+        <div class="col-md-6">
+            <h3>Aperçu des prochaines tâches</h3>
+            <p>
+                @Html.Partial("ListeTaches",
+                     new { testValue = "testValue", isDispo = "Disponnible" })
+            </p>
+        </div>
+
+    </div>
+</div>

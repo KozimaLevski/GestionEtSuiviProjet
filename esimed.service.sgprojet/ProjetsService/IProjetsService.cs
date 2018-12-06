@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using esimed.bean.sgprojet;
 
-namespace esimed.service.sgprojet.ProjetsService
+namespace esimed.service.sgprojet
 {
     public interface IProjetsService
     {

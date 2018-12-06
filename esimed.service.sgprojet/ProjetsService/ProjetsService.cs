@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using esimed.serviceda.sgprojet;
 using esimed.bean.sgprojet;
 
-namespace esimed.service.sgprojet.ProjetsService
+namespace esimed.service.sgprojet
 {
-    public class ProjetService : IProjetsService
+    public class ProjetsService : IProjetsService
     {
 
         IProjetsServiceDa ServiceDA = FServiceDaSgprojet.CreateProjetsServiceDa();
