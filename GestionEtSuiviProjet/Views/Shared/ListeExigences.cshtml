@@ -1,7 +1,7 @@
 ﻿@{
     if (Model.Count != 0)
     {
-        if (Model.ID != null && Model.ID != 0)
+        if (Model != null)
         {
             <div class="row">
                 <div class="col-md-3">
@@ -9,9 +9,9 @@
                 </div>
                 <div class="col-md-9">
 
-                    <a href="~/Home/Exigences?idProjet=@Model.Projet.ID&exigencesorderby=1" class="btn btn-info btn-sm" role="button">Exigences terminés</a>
-                    <a href="~/Home/Exigences?idProjet=@Model.Projet.ID&exigencesorderby=2" class="btn btn-info btn-sm" role="button">Exigences en cours</a>
-                    <a href="~/Home/Exigences?idProjet=@Model.Projet.ID&exigencesorderby=3" class="btn btn-info btn-sm" role="button">Exigences en attente</a>
+                    <a href="~/Home/Exigences?idProjet=@ViewBag.IDProjet&exigencesorderby=1" class="btn btn-info btn-sm" role="button">Exigences terminés</a>
+                    <a href="~/Home/Exigences?idProjet=@ViewBag.IDProjet&exigencesorderby=2" class="btn btn-info btn-sm" role="button">Exigences en cours</a>
+                    <a href="~/Home/Exigences?idProjet=@ViewBag.IDProjet&exigencesorderby=3" class="btn btn-info btn-sm" role="button">Exigences en attente</a>
                 </div>
             </div>
 
@@ -24,18 +24,21 @@
                     </tr>
                 </thead>
                 <tbody>
-
+                    
+                    @{
+                        foreach (var exigence in Model)
+                        {
                     <tr class="text-success">
-                        <td>@Model.Libelle</td>
-                        <td>@Model.Description</td>
+                        <td>@exigence.Trigramme</td>
+                        <td>@exigence.Description</td>
                         <td>
-                            <a href="~/Home/Exigence?idExigence=@Model.ID" class="btn btn-primary btn-sm" role="button">GO</a>
+                            <a href="~/Home/Exigence?idProjet=@ViewBag.idProjet&idExigence=@exigence.ID" class="btn btn-primary btn-sm" role="button">GO</a>
                         </td>
                     </tr>
+                        }
+                    }
                 </tbody>
             </table>
-
-
         }
     }
     else

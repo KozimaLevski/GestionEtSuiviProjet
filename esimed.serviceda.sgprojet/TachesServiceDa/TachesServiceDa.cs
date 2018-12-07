@@ -38,7 +38,7 @@ namespace esimed.serviceda.sgprojet
             }
             if (getExigences)
             {
-                // v_ressource.List_Exigences = FServiceDaSgprojet.
+                v_ressource.List_Exigences = FServiceDaSgprojet.CreateExigencesServiceDa().GetExigencesByTache(v_ressource.ID, false, false, false, false);
             }
             if (getJalons)
             {
@@ -68,6 +68,16 @@ namespace esimed.serviceda.sgprojet
         //    }
         //    return list_Taches;
         //}
+
+        public List<Tache> GetTachesByExigence(int idExigence, bool getProjets, bool getTaches, bool getExigences, bool getJalons)
+        {
+            List<Tache> list_Taches = new List<Tache>();
+            foreach (Dst_Suivi_Projet.TachesRow dr in new TachesTableAdapter().GetTachesByExigence(idExigence))
+            {
+                list_Taches.Add(FromDBToBean(dr, getProjets, getTaches, getExigences, getJalons));
+            }
+            return list_Taches;
+        }
         public Tache GetTache(int idTache, bool getProjet, bool getUtilisateur, bool getExigences, bool getJalons)
         {
             Tache projet = new Tache();

@@ -25,15 +25,15 @@ namespace esimed.serviceda.sgprojet
 
             if (getUtilisateur)
             {
-                v_ressource.Responsable = FServiceDaSgprojet.CreateUtilisateursServiceDa().GetUtilisateur(v_ressource.IDResponsable,false,false,false,false);
+                v_ressource.Responsable = FServiceDaSgprojet.CreateUtilisateursServiceDa().GetUtilisateur(v_ressource.IDResponsable, false, false, false, false);
             }
             if (getTaches)
             {
-                // v_ressource.List_Taches = FServiceDaSgprojet.CreateTachesServiceDa().GetTache(p_row.);
+                //v_ressource.Responsable = FServiceDaSgprojet.CreateUtilisateursServiceDa().GetUtilisateur(v_ressource.IDResponsable, true, true, true, true);
             }
             if (getExigences)
             {
-                // v_ressource.List_Exigences = FServiceDaSgprojet.
+                v_ressource.List_Exigences = FServiceDaSgprojet.CreateExigencesServiceDa().GetExigencesByProjet(v_ressource.ID, false, false, false,false);
             }
             if (getJalons)
             {
@@ -81,7 +81,7 @@ namespace esimed.serviceda.sgprojet
             }
             catch (Exception e)
             {
-                return false;
+                return true;
             }
         }
     }

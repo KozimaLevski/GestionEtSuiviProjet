@@ -1,7 +1,7 @@
 ﻿@{
     if (Model.Count != 0)
     {
-        if (Model.ID != null && Model.ID != 0 && Model.Responsable != null)
+        if (Model != null)
         {
             <div class="row">
                 <div class="col-md-3">
@@ -9,9 +9,9 @@
                 </div>
                 <div class="col-md-9">
 
-                    <a href="~/Home/Taches?idProjet=@Model.Projet.ID&tacheorderby=1" class="btn btn-info btn-sm" role="button">Taches terminés</a>
-                    <a href="~/Home/Taches?idProjet=@Model.Projet.ID&tacheorderby=2" class="btn btn-info btn-sm" role="button">Taches en cours</a>
-                    <a href="~/Home/Taches?idProjet=@Model.Projet.ID&tacheorderby=3" class="btn btn-info btn-sm" role="button">Taches en attente</a>
+                    <a href="~/Home/Taches?idProjet=@ViewBag.IDProjet&tacheorderby=1" class="btn btn-info btn-sm" role="button">Taches terminés</a>
+                    <a href="~/Home/Taches?idProjet=@ViewBag.IDProjet&tacheorderby=2" class="btn btn-info btn-sm" role="button">Taches en cours</a>
+                    <a href="~/Home/Taches?idProjet=@ViewBag.IDProjet&tacheorderby=3" class="btn btn-info btn-sm" role="button">Taches en attente</a>
                 </div>
             </div>
 
@@ -24,14 +24,19 @@
                     </tr>
                 </thead>
                 <tbody>
-
+                    
+                    @{
+                        foreach (var tache in Model)
+                        {
                     <tr class="text-success">
-                        <td>@Model.Libelle</td>
-                        <td>@Model.Responsable.Nom @Model.Responsable.Prenom</td>
+                        <td>@tache.Libelle</td>
+                        <td>@tache.Responsable.Nom @tache.Responsable.Prenom</td>
                         <td>
-                            <a href="~/Home/Tache?idTache=@Model.ID" class="btn btn-primary btn-sm" role="button">GO</a>
+                            <a href="~/Home/Tache?idProjet=@ViewBag.idProjet&idTache=@tache.ID" class="btn btn-primary btn-sm" role="button">GO</a>
                         </td>
                     </tr>
+                        }
+                    }
                 </tbody>
             </table>
 

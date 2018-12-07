@@ -10,6 +10,8 @@ namespace esimed.serviceda.sgprojet
     public interface IExigencesServiceDa
     {
         List<Exigence> GetExigences(bool getProjets, bool getTaches, bool getExigences, bool getJalons);
+        List<Exigence> GetExigencesByProjet(int idProjet, bool getProjets, bool getTaches, bool getExigences, bool getJalons);
+        List<Exigence> GetExigencesByTache(int idTache, bool getProjets, bool getTaches, bool getExigences, bool getJalons);
         Exigence GetExigence(int idExigence, bool getProjets, bool getTaches, bool getExigences, bool getJalons);
         bool CreerExigence(string Trigramme, string Description, bool IsTypeFonctionnelle, int IDTypeNonFonctionnelle, int IDProjet);
     }

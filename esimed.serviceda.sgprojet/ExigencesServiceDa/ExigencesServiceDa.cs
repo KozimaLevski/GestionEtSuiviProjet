@@ -21,7 +21,10 @@ namespace esimed.serviceda.sgprojet
             v_ressource.Trigramme = p_row.Trigramme;
             v_ressource.Description = p_row.Description;
             v_ressource.IsTypeFonctionnelle = p_row.IsTypeFonctionnelle;
-            v_ressource.IDTypeNonFonctionnelle = p_row.IDTypeNonFonctionnelle;
+            if(v_ressource.IsTypeFonctionnelle == true)
+            {
+                v_ressource.IDTypeNonFonctionnelle = p_row.IDTypeNonFonctionnelle;
+            }
             v_ressource.IDProjet = p_row.IDProjet;
 
             if (getProjet)
@@ -30,7 +33,7 @@ namespace esimed.serviceda.sgprojet
             }
             if (getTaches)
             {
-                // v_ressource.List_Taches = FServiceDaSgexigence.CreateTachesServiceDa().GetTache(p_row.);
+                v_ressource.List_Taches = FServiceDaSgprojet.CreateTachesServiceDa().GetTachesByExigence(v_ressource.ID, false, false, false, false);
             }
             if (getExigences)
             {
@@ -49,12 +52,31 @@ namespace esimed.serviceda.sgprojet
         public List<Exigence> GetExigences(bool getProjets, bool getTaches, bool getExigences, bool getJalons)
         {
             List<Exigence> list_Exigences = new List<Exigence>();
-            foreach (Dst_Suivi_Projet.ExigencesRow dr in new  ExigencesTableAdapter().GetExigences())
+            foreach (Dst_Suivi_Projet.ExigencesRow dr in new ExigencesTableAdapter().GetExigences())
             {
                 list_Exigences.Add(FromDBToBean(dr, getProjets, getTaches, getExigences, getJalons));
             }
             return list_Exigences;
         }
+        public List<Exigence> GetExigencesByProjet(int idProjet, bool getProjets, bool getTaches, bool getExigences, bool getJalons)
+        {
+            List<Exigence> list_Exigences = new List<Exigence>();
+            foreach (Dst_Suivi_Projet.ExigencesRow dr in new ExigencesTableAdapter().GetExigencesByProjet(idProjet))
+            {
+                list_Exigences.Add(FromDBToBean(dr, getProjets, getTaches, getExigences, getJalons));
+            }
+            return list_Exigences;
+        }
+        public List<Exigence> GetExigencesByTache(int idTache, bool getProjets, bool getTaches, bool getExigences, bool getJalons)
+        {
+            List<Exigence> list_Exigences = new List<Exigence>();
+            foreach (Dst_Suivi_Projet.ExigencesRow dr in new ExigencesTableAdapter().GetExigencesByTache(idTache))
+            {
+                list_Exigences.Add(FromDBToBean(dr, getProjets, getTaches, getExigences, getJalons));
+            }
+            return list_Exigences;
+        }
+        
         public Exigence GetExigence(int idExigence, bool getProjets, bool getTaches, bool getExigences, bool getJalons)
         {
             Exigence exigence = new Exigence();

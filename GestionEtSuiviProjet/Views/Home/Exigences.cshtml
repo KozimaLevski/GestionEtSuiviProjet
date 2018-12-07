@@ -1,7 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "Exigences";
-    if (ViewBag.ListeExigence == null)
+    if (ViewBag.ListeExigences == null)
     {
         ViewBag.ListeExigences = new List<esimed.bean.sgprojet.Exigence>();
     }
@@ -12,7 +12,7 @@
 
 <div class="container-fluid ">
     <div class="row">
-        <a href="~/Home/NouvelleExigence" class="btn btn-primary btn-lg btn-block">Ajouter une nouvelle exigence</a>
+        <a href="~/Home/NouvelleExigence?idProjet=@ViewBag.IDProjet" class="btn btn-primary btn-lg btn-block">Ajouter une nouvelle exigence</a>
     </div>
     <div class="row">
         <div class="col-md12">

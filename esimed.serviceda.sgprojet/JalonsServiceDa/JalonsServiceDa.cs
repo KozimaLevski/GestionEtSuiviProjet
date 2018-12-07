@@ -34,7 +34,7 @@ namespace esimed.serviceda.sgprojet
             }
             if (getExigences)
             {
-                // v_ressource.List_Exigences = FServiceDaSgjalon.
+                v_ressource.Projet.List_Exigences = FServiceDaSgprojet.CreateExigencesServiceDa().GetExigencesByProjet(v_ressource.IDProjet, true, true, true, true);
             }
 
             return v_ressource;

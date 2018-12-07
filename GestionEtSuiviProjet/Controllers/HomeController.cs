@@ -23,11 +23,93 @@ namespace GestionEtSuiviProjet.Controllers
 
         public ActionResult NouveauProjet()
         {
+            string error = "";
+            string nom = "";
+            string trigramme = "";
+            string description = "";
+            int idresponsable = 0;
+
+            try
+            {
+                if (Request.Form["trigramme"].Length > 0)
+                {
+                    nom = Request.Form["nomprojet"];
+                    description = Request.Form["description"];
+                    idresponsable = Convert.ToInt32(Request.Form["idresponsable"]);
+                    if (Request.Form["trigramme"].Length != 3)
+                    {
+                        error = "Le trigramme doit être composé de trois lettres.";
+                    }
+                    else
+                    {
+                        trigramme = Request.Form["trigramme"];
+                    }
+
+                    IProjetsService ServiceProjets = FServiceSgprojet.CreateProjetsService();
+                    if (error == "")
+                    {
+                        ServiceProjets.CreerProjet(trigramme, nom, description, idresponsable);
+                    }
+                    //ServiceExigences.CreerExigence(Trigramme, Description, IsTypeFonctionnelle, IDTypeNonFonctionnelle, IDProjet)
+
+                }
+            }
+            catch(Exception)
+            {
+
+            }
+
+            
+            ViewBag.Utilisateurs = FServiceSgprojet.CreateUtilisateursService().GetUtilisateurs(false,false,false,false);
+
+
+            ViewBag.Error = error;
             return View();
         }
 
         public ActionResult NouvelUtilisateur()
         {
+
+            string error = "";
+            string nom = "";
+            string prenom = "";
+            string trigramme = "";
+            bool estchefdeprojet = false;
+
+            try
+            {
+                if (Request.Form["trigramme"].Length > 0)
+                {
+                    nom = Request.Form["nomutilisateur"];
+                    prenom = Request.Form["prenomutilisateur"];
+                    if (Request.Form["estchefdeprojet"] != null)
+                    {
+                        estchefdeprojet = true;
+                    }
+                    if (Request.Form["trigramme"].Length != 3)
+                    {
+                        error = "Le trigramme doit être composé de trois lettres.";
+                    }
+                    else
+                    {
+                        trigramme = Request.Form["trigramme"];
+                    }
+
+                    IUtilisateursService ServiceUtilisateurs = FServiceSgprojet.CreateUtilisateursService();
+                    if (error == "")
+                    {
+                        ServiceUtilisateurs.CreerUtilisateur(nom, prenom, estchefdeprojet);
+                    }
+                    //ServiceExigences.CreerExigence(Trigramme, Description, IsTypeFonctionnelle, IDTypeNonFonctionnelle, IDProjet)
+
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+            
+            ViewBag.Error = error;
             return View();
         }
 
@@ -126,7 +208,6 @@ namespace GestionEtSuiviProjet.Controllers
                 Projet ProjetSelect = ServiceDA.GetProjet(IDProjet, true, true, true, true);
                 ViewBag.ProjetSelect = ProjetSelect;
 
-
                 ITachesService SerticeTaches = FServiceSgprojet.CreateTachesService();
                 int idTache = 0;
                 if (Request.Params["idTache"] != null)
@@ -179,7 +260,32 @@ namespace GestionEtSuiviProjet.Controllers
         }
         public ActionResult Exigence()
         {
-            return View();
+
+
+            if (Request.Params["idProjet"] != null)
+            {
+                int idProjet = Convert.ToInt32(Request.Params["idProjet"]);
+                IProjetsService ServiceDA = FServiceSgprojet.CreateProjetsService();
+
+                // Récupération du projet sélectionné
+                Projet ProjetSelect = ServiceDA.GetProjet(idProjet, true, true, true, true);
+                ViewBag.ProjetSelect = ProjetSelect;
+                ViewBag.idProjet = idProjet;
+
+                int idExigence = Convert.ToInt32(Request.Params["idExigence"]);                
+
+                // Récupération des exigences du projet
+                IExigencesService ServiceExigences = FServiceSgprojet.CreateExigencesService();
+                Exigence Exigence = ServiceExigences.GetExigence(idExigence, false, true, false, false);
+                ViewBag.Exigence = Exigence;
+
+                // Récupération des taches associés                
+                ITachesService ServiceTaches = FServiceSgprojet.CreateTachesService();
+                List<Tache> ListeTachesAssocies = ServiceTaches.GetTachesByExigence(idExigence, false, true, false, false);
+                ViewBag.ListeTachesAssocies = ListeTachesAssocies;
+
+            }
+                return View();
         }
         public ActionResult Jalons()
         {
@@ -233,7 +339,7 @@ namespace GestionEtSuiviProjet.Controllers
             {
                 int IDProjet = Convert.ToInt32(Request.Params["idProjet"]);
                 IProjetsService ServiceDA = FServiceSgprojet.CreateProjetsService();
-
+                ViewBag.IDProjet = IDProjet;
                 // Récupération du projet sélectionné
                 Projet ProjetSelect = ServiceDA.GetProjet(IDProjet, true, true, true, true);
                 ViewBag.ProjetSelect = ProjetSelect;
@@ -276,6 +382,7 @@ namespace GestionEtSuiviProjet.Controllers
             if (Request.Params["idProjet"] != null)
             {
                 int IDProjet = Convert.ToInt32(Request.Params["idProjet"]);
+                ViewBag.IDProjet = IDProjet;
                 IProjetsService ServiceDA = FServiceSgprojet.CreateProjetsService();
 
                 // Récupération du projet sélectionné
@@ -283,7 +390,8 @@ namespace GestionEtSuiviProjet.Controllers
                 ViewBag.ProjetSelect = ProjetSelect;
 
                 // Récupération des exigences du projet
-                List<Exigence> ListeExigences = ProjetSelect.List_Exigences;
+                IExigencesService ServiceExigences = FServiceSgprojet.CreateExigencesService();                
+                List<Exigence> ListeExigences = ServiceExigences.GetExigencesByProjet(IDProjet, false, true, false, false);
 
                 if (Request.Params["exigencesorderby"] != null)
                 {
@@ -307,29 +415,122 @@ namespace GestionEtSuiviProjet.Controllers
                             Console.WriteLine("Default case");
                             break;
                     }
-
                 }
-
                 ViewBag.ListeExigences = ListeExigences;
             }
             return View();
         }
         public ActionResult NouvelleExigence()
         {
+            string error = "";
+            string trigramme = "";
+            string description = "";
+            bool isFonctionnelle = false;
+            int idTypeFonctionnel = 0;
 
-            if(Request.Form != null)
+            if (Request.Params["idProjet"] != null)
             {
-                //Request.Form["companyname"];
+                int IDProjet = Convert.ToInt32(Request.Params["idProjet"]);
+                ViewBag.IDProjet = IDProjet;
 
-                IExigencesService ServiceExigences = FServiceSgprojet.CreateExigencesService();
-                //ServiceExigences.CreerExigence(Trigramme, Description, IsTypeFonctionnelle, IDTypeNonFonctionnelle, IDProjet)
+                try
+                {
+                    if (Request.Form["trigramme"].Length > 0)
+                    {
+                        //Request.Form["companyname"];
 
+                        idTypeFonctionnel = Convert.ToInt32(Request.Form["typesnonfonctionnel"]);
+                        description = Request.Form["description"];
+                        if(Request.Form["boolfonctionnelle"] == null)
+                        {
+                            isFonctionnelle = false;
+                        }
+                        if (Request.Form["trigramme"].Length != 3)
+                        {
+                            error = "Le trigramme doit être composé de trois lettres.";
+                        }
+                        else
+                        {
+                            trigramme = Request.Form["trigramme"];
+                        }
+
+                        IExigencesService ServiceExigences = FServiceSgprojet.CreateExigencesService();
+                        if (error == "")
+                        {
+                            ServiceExigences.CreerExigence(trigramme, description, isFonctionnelle, idTypeFonctionnel, IDProjet);
+                        }
+                        //ServiceExigences.CreerExigence(Trigramme, Description, IsTypeFonctionnelle, IDTypeNonFonctionnelle, IDProjet)
+
+
+                    }
+                }
+                catch (Exception)
+                {
+                    
+                }
 
             }
+
+            ViewBag.Error = error;
             return View();
         }
+
         public ActionResult NouvelleTache()
         {
+
+
+            string error = "";
+            //////string Libelle = "";
+            //////DateTime datelivraisonprevue = new DateTime();
+            //////DateTime datelivraisonreele = new DateTime();
+            //////int idprojet = 0;
+            //////int idresponsable = 0;
+
+            //////if (Request.Params["idProjet"] != null)
+            //////{
+            //////    int IDProjet = Convert.ToInt32(Request.Params["idProjet"]);
+            //////    ViewBag.IDProjet = IDProjet;
+
+            //////    try
+            //////    {
+            //////        if (Request.Form["trigramme"].Length > 0)
+            //////        {
+            //////            //Request.Form["companyname"];
+
+            //////            idTypeFonctionnel = Convert.ToInt32(Request.Form["typesnonfonctionnel"]);
+            //////            description = Request.Form["description"];
+            //////            if (Request.Form["boolfonctionnelle"] == null)
+            //////            {
+            //////                isFonctionnelle = false;
+            //////            }
+            //////            if (Request.Form["trigramme"].Length != 3)
+            //////            {
+            //////                error = "Le trigramme doit être composé de trois lettres.";
+            //////            }
+            //////            else
+            //////            {
+            //////                trigramme = Request.Form["trigramme"];
+            //////            }
+
+            //////            ITachesService ServiceExigences = FServiceSgprojet.CreateTachesService();
+            //////            if (error == "")
+            //////            {
+            //////                ServiceExigences.CreerExigence(trigramme, description, isFonctionnelle, idTypeFonctionnel, IDProjet);
+            //////            }
+            //////            //ServiceExigences.CreerExigence(Trigramme, Description, IsTypeFonctionnelle, IDTypeNonFonctionnelle, IDProjet)
+
+
+            //////        }
+            //////    }
+            //////    catch (Exception)
+            //////    {
+
+            //////    }
+
+            //////}
+            ViewBag.Utilisateurs = FServiceSgprojet.CreateUtilisateursService().GetUtilisateurs(false,false,false,false);
+
+            ViewBag.Error = error;
             return View();
         }
         public ActionResult NouveauJalon()

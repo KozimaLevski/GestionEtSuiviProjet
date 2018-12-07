@@ -5,25 +5,31 @@
     {
         ViewBag.ListeExigences = new List<esimed.bean.sgprojet.Exigence>();
     }
-    List<esimed.bean.sgprojet.Exigence> ListeExigences = ViewBag.ListeExigences;
+    List<esimed.bean.sgprojet.Exigence> ListeExigences = ViewBag.ListeExigences;    
+
+    if (ViewBag.Tache == null)
+    {
+        ViewBag.Tache = new esimed.bean.sgprojet.Tache();
+    }
+    esimed.bean.sgprojet.Tache Tache = ViewBag.Tache;
 }
 
 <h2>Visualisation d'une tâche</h2>
 
 <div class="container" style="background-color: #eaf5ff!important;border-radius: .4rem;">
-    <h1>@ViewBag.ProjetSelect.Nom : @ViewBag.Tache.Nom (@ViewBag.Tache.Trigramme)</h1>
-    <p>Responsable de la tâche : @ViewBag.Tache.Responsable.Prenom @ViewBag.Tache.Responsable.Nom</p>
+    <h1>@ViewBag.ProjetSelect.Nom : @Tache.Libelle (@Tache.Trigramme)</h1>
+    <p>Responsable de la tâche : @Tache.Responsable.Prenom @Tache.Responsable.Nom</p>
     <p>
-        Date de démarrage théorique : @ViewBag.Tache.DateDebutTheoriqueExe Jeudi 6 Décembre 2018
+        Date de démarrage théorique : @Tache.DateDebutTheoriqueExe
     </p>
     <p>
-        Date de démarrage réelle : @ViewBag.Tache.DateDemarrageReele Vendredi 7 Décembre 2018
+        Date de démarrage réelle : @Tache.DateDemarrageReele
     </p>
     <p>
-        Charge (jours) : @ViewBag.Tache.ChargeNbJours 2 jours
+        Charge (jours) : @Tache.ChargeNbJours jours
     </p>
     <p>
-        Statut : @ViewBag.Tache.Status En cours / En attente / Terminée
+        Statut :  En cours / En attente / Terminée
     </p>
 </div>
 

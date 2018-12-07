@@ -17,6 +17,10 @@ namespace esimed.service.sgprojet
         {
             return ServiceDA.GetTaches(getProjet, getUtilisateur, getExigences, getJalons);
         }
+        public List<Tache> GetTachesByExigence(int idExigence, bool getProjet, bool getUtilisateur, bool getExigences, bool getJalons)
+        {
+            return ServiceDA.GetTachesByExigence(idExigence, getProjet, getUtilisateur, getExigences, getJalons);
+        }
         public Tache GetTache(int idTache, bool getProjet, bool getUtilisateur, bool getExigences, bool getJalons)
         {
             return ServiceDA.GetTache(idTache, getProjet, getUtilisateur, getExigences, getJalons);
