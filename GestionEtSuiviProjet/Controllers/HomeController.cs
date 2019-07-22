@@ -457,7 +457,13 @@ namespace GestionEtSuiviProjet.Controllers
                         IExigencesService ServiceExigences = FServiceSgprojet.CreateExigencesService();
                         if (error == "")
                         {
-                            ServiceExigences.CreerExigence(trigramme, description, isFonctionnelle, idTypeFonctionnel, IDProjet);
+                            if(!ServiceExigences.CreerExigence(trigramme, description, isFonctionnelle, idTypeFonctionnel, IDProjet))
+                            {
+                                // Erreur lors de l'insertion de l'exigence.
+                                // On affiche le message dans la page du formulaire
+                                // TODO : Remplir lles champs avec les valeurs précédement reçues.
+                                return Redirect("~/Home/NouvelleExigence?idProjet=" + IDProjet + "&err=Erreur lors de l'insertion de l'exigence.");
+                            }
                         }
                         //ServiceExigences.CreerExigence(Trigramme, Description, IsTypeFonctionnelle, IDTypeNonFonctionnelle, IDProjet)
 
@@ -480,6 +486,8 @@ namespace GestionEtSuiviProjet.Controllers
 
 
             string error = "";
+
+            #region comms
             //////string Libelle = "";
             //////DateTime datelivraisonprevue = new DateTime();
             //////DateTime datelivraisonreele = new DateTime();
@@ -528,6 +536,9 @@ namespace GestionEtSuiviProjet.Controllers
             //////    }
 
             //////}
+
+            #endregion comms
+
             ViewBag.Utilisateurs = FServiceSgprojet.CreateUtilisateursService().GetUtilisateurs(false,false,false,false);
 
             ViewBag.Error = error;
